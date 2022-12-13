@@ -10,4 +10,10 @@ export default createGlobalStyle`
         padding: 0;   
     }
 
+    #root {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: 6% 1fr 3%;
+    }
+
 `;
