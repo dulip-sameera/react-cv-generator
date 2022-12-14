@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Personal from "./Personal";
 
 const LayoutDiv = styled.div`
   grid-column: 1/2;
@@ -14,7 +15,7 @@ export class Form extends Component {
     const { data, experience, education } = this.props.info;
     return (
       <LayoutDiv>
-        <div>Form</div>
+        <Personal data={data.personalInfo} />
       </LayoutDiv>
     );
   }
