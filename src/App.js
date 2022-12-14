@@ -6,8 +6,8 @@ export class App extends Component {
     return (
       <>
         <Header />
-        <Footer />
         <Body />
+        <Footer />
       </>
     );
   }
