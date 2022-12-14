@@ -19,13 +19,15 @@ export class Body extends Component {
 
     this.state = {
       data: {
-        fistName: "",
-        lastName: "",
-        position: "",
-        address: "",
-        phoneNumber: "",
-        email: "",
-        description: "",
+        personalInfo: {
+          fistName: "",
+          lastName: "",
+          position: "",
+          address: "",
+          phoneNumber: "",
+          email: "",
+          description: "",
+        },
         experienceList: [],
         educationList: [],
       },
@@ -54,7 +56,7 @@ export class Body extends Component {
   render() {
     return (
       <LayoutDiv>
-        <Form data={this.state} />
+        <Form info={this.state} />
       </LayoutDiv>
     );
   }
