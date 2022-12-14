@@ -13,6 +13,43 @@ const LayoutDiv = styled.div`
 `;
 
 export class Body extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: {
+        fistName: "",
+        lastName: "",
+        position: "",
+        address: "",
+        phoneNumber: "",
+        email: "",
+        description: "",
+        experienceList: [],
+        educationList: [],
+      },
+
+      experience: {
+        id: "",
+        position: "",
+        company: "",
+        address: "",
+        from: "",
+        to: "",
+      },
+
+      education: {
+        id: "",
+        universityName: "",
+        city: "",
+        degree: "",
+        subject: "",
+        from: "",
+        to: "",
+      },
+    };
+  }
+
   render() {
     return (
       <LayoutDiv>
