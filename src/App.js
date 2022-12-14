@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Footer, Header } from "./components";
+import { Body, Footer, Header } from "./components";
 
 export class App extends Component {
   render() {
@@ -7,6 +7,7 @@ export class App extends Component {
       <>
         <Header />
         <Footer />
+        <Body />
       </>
     );
   }
