@@ -21,6 +21,10 @@ const FooterText = styled.p`
   display: flex;
   align-items: center;
   gap: 5px;
+
+  & {
+    cursor: default;
+  }
 `;
 
 const Link = styled.a`
