@@ -1,8 +1,8 @@
 const theme = {
   colors: {
-    bodyBg: "#282a3a",
     headerBg: "#101223",
     brandName: "#f3f4f8",
+    bodyBg: "#282a3a",
     footerBg: "#101223",
     footerText: "#f3f4f8",
     btnText: "#fff",
