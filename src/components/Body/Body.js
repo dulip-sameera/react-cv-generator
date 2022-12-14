@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Form } from "./Form";
 
 const LayoutDiv = styled.div`
   grid-row: 2/3;
@@ -53,7 +54,7 @@ export class Body extends Component {
   render() {
     return (
       <LayoutDiv>
-        <div>Body</div>
+        <Form data={this.state} />
       </LayoutDiv>
     );
   }
