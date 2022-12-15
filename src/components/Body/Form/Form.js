@@ -12,10 +12,12 @@ const LayoutDiv = styled.div`
 
 export class Form extends Component {
   render() {
-    const { data, experience, education } = this.props.info;
+    const { info, onChangeFn } = this.props;
+    const { data, experience, education } = info;
+    // console.log(info);
     return (
       <LayoutDiv>
-        <Personal data={data.personalInfo} />
+        <Personal data={data.personalInfo} onChangeFn={onChangeFn} />
       </LayoutDiv>
     );
   }
