@@ -25,6 +25,7 @@ export class Body extends Component {
           firstName: "",
           lastName: "",
           position: "",
+          image: "",
           address: "",
           phoneNumber: "",
           email: "",
@@ -57,7 +58,7 @@ export class Body extends Component {
 
   onInputChange = (e) => {
     const id = e.target.id;
-    const value = e.target.value;
+    let value = e.target.value;
 
     switch (id) {
       case "firstName":
@@ -67,6 +68,28 @@ export class Body extends Component {
         this.setState((state) => updateDataState(state, id, value));
         break;
       case "position":
+        this.setState((state) => updateDataState(state, id, value));
+        break;
+      case "image":
+        const file = e.target.files[0];
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onloadend = function () {
+          this.setState((state) =>
+            updateDataState(state, id, fileReader.result)
+          );
+        }.bind(this);
+        break;
+      case "address":
+        this.setState((state) => updateDataState(state, id, value));
+        break;
+      case "phoneNumber":
+        this.setState((state) => updateDataState(state, id, value));
+        break;
+      case "email":
+        this.setState((state) => updateDataState(state, id, value));
+        break;
+      case "description":
         this.setState((state) => updateDataState(state, id, value));
         break;
 
