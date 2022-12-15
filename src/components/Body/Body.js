@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Form } from "./Form";
-import updateDataState from "./Form/Utils/updateDataState";
 import Preview from "./Preview";
+import updateDataState from "./Form/Utils/updateDataState";
 
 const LayoutDiv = styled.div`
   grid-row: 2/3;
