@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Form } from "./Form";
 import updateDataState from "./Form/Utils/updateDataState";
+import Preview from "./Preview";
 
 const LayoutDiv = styled.div`
   grid-row: 2/3;
@@ -78,6 +79,7 @@ export class Body extends Component {
     return (
       <LayoutDiv>
         <Form info={this.state} onChangeFn={this.onInputChange} />
+        <Preview info={this.state.data} />
       </LayoutDiv>
     );
   }
