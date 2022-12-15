@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Form } from "./Form";
+import updateDataState from "./Form/Utils/updateDataState";
 
 const LayoutDiv = styled.div`
   grid-row: 2/3;
@@ -20,7 +21,7 @@ export class Body extends Component {
     this.state = {
       data: {
         personalInfo: {
-          fistName: "",
+          firstName: "",
           lastName: "",
           position: "",
           address: "",
@@ -53,10 +54,30 @@ export class Body extends Component {
     };
   }
 
+  onInputChange = (e) => {
+    const id = e.target.id;
+    const value = e.target.value;
+
+    switch (id) {
+      case "firstName":
+        this.setState((state) => updateDataState(state, id, value));
+        break;
+      case "lastName":
+        this.setState((state) => updateDataState(state, id, value));
+        break;
+      case "position":
+        this.setState((state) => updateDataState(state, id, value));
+        break;
+
+      default:
+        break;
+    }
+  };
+
   render() {
     return (
       <LayoutDiv>
-        <Form info={this.state} />
+        <Form info={this.state} onChangeFn={this.onInputChange} />
       </LayoutDiv>
     );
   }
