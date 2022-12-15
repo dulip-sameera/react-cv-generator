@@ -12,14 +12,14 @@ export class Personal extends Component {
         <InputField
           id="firstName"
           type="text"
-          maxLength="10"
+          maxLength="20"
           onChangeFn={onChangeFn}
           placeholder="First Name"
         />
         <InputField
           id="lastName"
           type="text"
-          maxLength="10"
+          maxLength="20"
           onChangeFn={onChangeFn}
           placeholder="Last Name"
         />
@@ -30,6 +30,45 @@ export class Personal extends Component {
           maxLength="30"
           onChangeFn={onChangeFn}
           placeholder="Position"
+        />
+
+        <InputField
+          id="image"
+          type="file"
+          onChangeFn={onChangeFn}
+          placeholder="Add Image"
+          accept="image/*"
+        />
+
+        <InputField
+          id="address"
+          type="text"
+          maxLength="255"
+          onChangeFn={onChangeFn}
+          placeholder="Address"
+        />
+
+        <InputField
+          id="phoneNumber"
+          type="text"
+          maxLength="10"
+          onChangeFn={onChangeFn}
+          placeholder="Phone Number"
+        />
+
+        <InputField
+          id="email"
+          type="text"
+          maxLength="30"
+          onChangeFn={onChangeFn}
+          placeholder="Email"
+        />
+
+        <InputField
+          id="description"
+          type="textArea"
+          onChangeFn={onChangeFn}
+          placeholder="Description"
         />
       </div>
     );
