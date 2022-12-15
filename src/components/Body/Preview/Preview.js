@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Header from "./Header";
+import Main from "./Main";
+import SideBar from "./SideBar";
 
 const LayoutDiv = styled.div`
   background: ${({ theme }) => theme.colors.grey};
@@ -20,14 +22,28 @@ export class Preview extends Component {
   render() {
     const { info } = this.props;
     const { personalInfo } = info;
-    const { firstName, lastName, position } = personalInfo;
+    const {
+      firstName,
+      lastName,
+      position,
+      image,
+      email,
+      address,
+      phoneNumber,
+      description,
+    } = personalInfo;
 
     return (
       <LayoutDiv>
         <Header name={`${firstName} ${lastName}`} position={position} />
         <BodyDiv>
-          <div>Hello</div>
-          <div>World Create Problems, Humans to solve</div>
+          <Main description={description} />
+          <SideBar
+            image={image}
+            email={email}
+            address={address}
+            phoneNumber={phoneNumber}
+          />
         </BodyDiv>
       </LayoutDiv>
     );
