@@ -5,7 +5,7 @@ const Input = styled.input`
   color: ${({ theme }) => theme.colors.textPrimary};
   background: ${({ theme }) => theme.colors.darkGrey};
   padding: 0.3rem 0.6rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.7rem;
   border-radius: 5px;
   font-size: 1.25rem;
   font-weight: 700;
