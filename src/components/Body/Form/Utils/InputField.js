@@ -20,15 +20,15 @@ const Input = styled.input`
 
 export class InputField extends Component {
   render() {
-    const { id, type, maxLength, placeholder, onchangeFn } = this.props;
+    const { id, type, maxLength, placeholder, onChangeFn } = this.props;
 
     return (
       <Input
         id={id}
         type={type}
-        maxlength={maxLength}
+        maxLength={maxLength}
         placeholder={placeholder}
-        onChange={onchangeFn}
+        onChange={onChangeFn}
       />
     );
   }
