@@ -12,14 +12,14 @@ export class Personal extends Component {
         <InputField
           id="firstName"
           type="text"
-          maxLength="100"
+          maxLength="10"
           onChangeFn={onChangeFn}
           placeholder="First Name"
         />
         <InputField
           id="lastName"
           type="text"
-          maxLength="100"
+          maxLength="10"
           onChangeFn={onChangeFn}
           placeholder="Last Name"
         />
@@ -27,7 +27,7 @@ export class Personal extends Component {
         <InputField
           id="position"
           type="text"
-          maxLength="100"
+          maxLength="30"
           onChangeFn={onChangeFn}
           placeholder="Position"
         />
