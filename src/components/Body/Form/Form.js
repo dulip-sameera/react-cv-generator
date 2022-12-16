@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Experience from "./Experience";
 import Personal from "./Personal";
 
 const LayoutDiv = styled.div`
@@ -12,12 +13,17 @@ const LayoutDiv = styled.div`
 
 export class Form extends Component {
   render() {
-    const { info, onChangeFn } = this.props;
+    const { info, onChangeFn, addFn, deleteFn } = this.props;
     const { data, experience, education } = info;
-    // console.log(info);
     return (
       <LayoutDiv>
-        <Personal data={data.personalInfo} onChangeFn={onChangeFn} />
+        <Personal data={data.personalInfo} onChangeFn={onChangeFn.personal} />
+        <Experience
+          data={data.experienceList}
+          onChangeFn={onChangeFn.list}
+          deleteFn={deleteFn}
+          addFn={addFn}
+        />
       </LayoutDiv>
     );
   }
