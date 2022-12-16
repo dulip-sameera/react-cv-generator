@@ -26,6 +26,7 @@ export class Experience extends Component {
           to={testOb.to}
           deleteFn={deleteFn}
           key={testOb.id}
+          onChangeFn={onChangeFn}
         />
       </div>
     );
