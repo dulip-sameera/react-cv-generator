@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/react-cv-generator/static/js/main.5f83c152.js",
+    "static/media/profile_pic.png": "/react-cv-generator/static/media/profile_pic.7113ebdf5bd8359b9409.png",
+    "index.html": "/react-cv-generator/index.html",
+    "main.5f83c152.js.map": "/react-cv-generator/static/js/main.5f83c152.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.5f83c152.js"
+  ]
+}
