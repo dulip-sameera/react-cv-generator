@@ -15,7 +15,6 @@ export class Form extends Component {
   render() {
     const { info, onChangeFn, addFn, deleteFn } = this.props;
     const { data } = info;
-    console.log(data);
     return (
       <LayoutDiv>
         <Personal data={data.personalInfo} onChangeFn={onChangeFn.personal} />

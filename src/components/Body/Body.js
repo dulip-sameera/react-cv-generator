@@ -90,8 +90,6 @@ export class Body extends Component {
         updateExperienceDataState(state, id, field, value)
       );
     }
-
-    console.log(this.state);
   };
 
   deleteListItem = (e) => {
