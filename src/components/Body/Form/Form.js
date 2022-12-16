@@ -9,6 +9,7 @@ const LayoutDiv = styled.div`
 
   background: ${({ theme }) => theme.colors.grey};
   border-radius: 10px;
+  min-width: 800px;
 `;
 
 export class Form extends Component {
