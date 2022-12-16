@@ -68,7 +68,12 @@ export class ExperienceItem extends Component {
           list
         />
 
-        <Button text="Delete" onClickFn={deleteFn} id={id} />
+        <Button
+          text="Delete"
+          onClickFn={deleteFn}
+          id={id}
+          listType="experience"
+        />
       </LayoutDiv>
     );
   }
