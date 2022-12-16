@@ -56,7 +56,7 @@ export class Body extends Component {
     };
   }
 
-  onInputChange = (e) => {
+  onPersonalInputChange = (e) => {
     const id = e.target.id;
     let value = e.target.value;
 
@@ -98,10 +98,30 @@ export class Body extends Component {
     }
   };
 
+  onListInputChange = (e) => {
+    console.log(e);
+  };
+
+  deleteListItem = (e) => {
+    console.log(e);
+  };
+
+  addListItem = (e) => {
+    console.log(e);
+  };
+
   render() {
     return (
       <LayoutDiv>
-        <Form info={this.state} onChangeFn={this.onInputChange} />
+        <Form
+          info={this.state}
+          onChangeFn={{
+            personal: this.onPersonalInputChange,
+            list: this.onListInputChange,
+          }}
+          deleFn={this.deleteListItem}
+          addFn={this.addListItem}
+        />
         <Preview info={this.state.data} />
       </LayoutDiv>
     );
