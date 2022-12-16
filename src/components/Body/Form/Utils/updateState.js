@@ -21,6 +21,21 @@ function updateExperienceDataState(prevState, id, prop, value) {
   return prevState;
 }
 
+function updateEducationDataState(prevState, id, prop, value) {
+  prevState["data"]["educationList"] = prevState["data"]["educationList"].map(
+    (item) => {
+      if (item.id === id) {
+        item[prop] = value;
+        return item;
+      }
+
+      return item;
+    }
+  );
+
+  return prevState;
+}
+
 function addToExperienceList(prevState) {
   prevState["data"]["experienceList"] = [
     ...prevState["data"]["experienceList"],
@@ -29,6 +44,23 @@ function addToExperienceList(prevState) {
       position: "",
       company: "",
       address: "",
+      from: "",
+      to: "",
+    },
+  ];
+
+  return prevState;
+}
+
+function addToEducationList(prevState) {
+  prevState["data"]["educationList"] = [
+    ...prevState["data"]["educationList"],
+    {
+      id: uniqid(),
+      universityName: "",
+      city: "",
+      degree: "",
+      subject: "",
       from: "",
       to: "",
     },
@@ -47,9 +79,22 @@ function deleteFromExperienceList(prevState, id) {
   return prevState;
 }
 
+function deleteFromEducationList(prevState, id) {
+  const index = prevState["data"]["educationList"].findIndex(
+    (item) => item.id === id
+  );
+
+  prevState["data"]["educationList"].splice(index, 1);
+
+  return prevState;
+}
+
 export {
   updatePersonalDataState,
   addToExperienceList,
   deleteFromExperienceList,
   updateExperienceDataState,
+  addToEducationList,
+  deleteFromEducationList,
+  updateEducationDataState,
 };
