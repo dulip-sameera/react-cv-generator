@@ -18,6 +18,7 @@ const LayoutDiv = styled.div`
 const BodyDiv = styled.div`
   display: grid;
   grid-template-columns: 1fr 280px;
+  min-width: 800px;
 `;
 
 export class Preview extends Component {
