@@ -4,7 +4,7 @@ import { Description, SubTitle } from "./styles";
 
 const LayoutDiv = styled.div`
   display: flex;
-  gap: 40px;
+  gap: 20px;
   margin-bottom: 10px;
 `;
 
