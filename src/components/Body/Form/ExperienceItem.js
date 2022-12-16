@@ -21,6 +21,7 @@ export class ExperienceItem extends Component {
           dataList="experience"
           id={id}
           onChangeFn={onChangeFn}
+          value={position}
           list
         />
 
@@ -32,6 +33,7 @@ export class ExperienceItem extends Component {
           dataList="experience"
           id={id}
           onChangeFn={onChangeFn}
+          value={company}
           list
         />
 
@@ -43,6 +45,7 @@ export class ExperienceItem extends Component {
           dataList="experience"
           id={id}
           onChangeFn={onChangeFn}
+          value={address}
           list
         />
 
@@ -54,6 +57,7 @@ export class ExperienceItem extends Component {
           dataList="experience"
           id={id}
           onChangeFn={onChangeFn}
+          value={from}
           list
         />
 
@@ -65,6 +69,7 @@ export class ExperienceItem extends Component {
           dataList="experience"
           id={id}
           onChangeFn={onChangeFn}
+          value={to}
           list
         />
 
