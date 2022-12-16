@@ -36,6 +36,12 @@ const TextArea = styled.textarea`
   }
 `;
 
+const InputImage = styled(Input)`
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export class InputField extends Component {
   render() {
     const {
@@ -48,11 +54,12 @@ export class InputField extends Component {
       list,
       dataField,
       dataList,
+      value,
     } = this.props;
 
     if (type === "file") {
       return (
-        <Input id={id} type={type} accept={accept} onChange={onChangeFn} />
+        <InputImage id={id} type={type} accept={accept} onChange={onChangeFn} />
       );
     }
 
@@ -62,6 +69,7 @@ export class InputField extends Component {
           id={id}
           placeholder={placeholder}
           onChange={onChangeFn}
+          value={value}
         ></TextArea>
       );
     }
@@ -76,6 +84,7 @@ export class InputField extends Component {
           data-field={dataField}
           data-list={dataList}
           data-id={id}
+          value={value}
         />
       );
     }
@@ -87,6 +96,7 @@ export class InputField extends Component {
         maxLength={maxLength}
         placeholder={placeholder}
         onChange={onChangeFn}
+        value={value}
       />
     );
   }
