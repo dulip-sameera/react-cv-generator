@@ -5,6 +5,7 @@ import Preview from "./Preview";
 import {
   addToExperienceList,
   deleteFromExperienceList,
+  updateExperienceDataState,
   updatePersonalDataState,
 } from "./Form/Utils/updateState";
 
@@ -64,46 +65,33 @@ export class Body extends Component {
     const id = e.target.id;
     let value = e.target.value;
 
-    switch (id) {
-      case "firstName":
-        this.setState((state) => updatePersonalDataState(state, id, value));
-        break;
-      case "lastName":
-        this.setState((state) => updatePersonalDataState(state, id, value));
-        break;
-      case "position":
-        this.setState((state) => updatePersonalDataState(state, id, value));
-        break;
-      case "image":
-        const file = e.target.files[0];
-        const fileReader = new FileReader();
-        fileReader.readAsDataURL(file);
-        fileReader.onloadend = function () {
-          this.setState((state) =>
-            updatePersonalDataState(state, id, fileReader.result)
-          );
-        }.bind(this);
-        break;
-      case "address":
-        this.setState((state) => updatePersonalDataState(state, id, value));
-        break;
-      case "phoneNumber":
-        this.setState((state) => updatePersonalDataState(state, id, value));
-        break;
-      case "email":
-        this.setState((state) => updatePersonalDataState(state, id, value));
-        break;
-      case "description":
-        this.setState((state) => updatePersonalDataState(state, id, value));
-        break;
-
-      default:
-        break;
+    if (id === "image") {
+      const file = e.target.files[0];
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onloadend = function () {
+        this.setState((state) =>
+          updatePersonalDataState(state, id, fileReader.result)
+        );
+      }.bind(this);
+    } else {
+      this.setState((state) => updatePersonalDataState(state, id, value));
     }
   };
 
   onListInputChange = (e) => {
-    console.log(e);
+    const list = e.target.attributes["data-list"].value;
+    const id = e.target.attributes["data-id"].value;
+    const field = e.target.attributes["data-field"].value;
+    const value = e.target.value;
+
+    if (list === "experience") {
+      this.setState((state) =>
+        updateExperienceDataState(state, id, field, value)
+      );
+    }
+
+    console.log(this.state);
   };
 
   deleteListItem = (e) => {
