@@ -17,9 +17,36 @@ const Btn = styled.button`
   }
 `;
 
+const RedBtn = styled(Btn)`
+  background: ${({ theme }) => theme.colors.red};
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.redHover};
+    cursor: pointer;
+  }
+`;
+
+const YellowBtn = styled(Btn)`
+  background: ${({ theme }) => theme.colors.yellow};
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.yellowHover};
+    cursor: pointer;
+  }
+`;
+
+const GreenBtn = styled(Btn)`
+  background: ${({ theme }) => theme.colors.green};
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.greenHover};
+    cursor: pointer;
+  }
+`;
+
 export class Button extends Component {
   render() {
-    const { text, onClickFn, id, type, listType } = this.props;
+    const { text, onClickFn, id, type, listType, color } = this.props;
 
     if (type === "experience") {
       return (
@@ -37,6 +64,30 @@ export class Button extends Component {
           <Btn onClick={onClickFn} id="education">
             {text}
           </Btn>
+        </>
+      );
+    }
+
+    if (color === "red") {
+      return (
+        <>
+          <RedBtn onClick={onClickFn}>{text}</RedBtn>
+        </>
+      );
+    }
+
+    if (color === "yellow") {
+      return (
+        <>
+          <YellowBtn onClick={onClickFn}>{text}</YellowBtn>
+        </>
+      );
+    }
+
+    if (color === "green") {
+      return (
+        <>
+          <GreenBtn onClick={onClickFn}>{text}</GreenBtn>
         </>
       );
     }
