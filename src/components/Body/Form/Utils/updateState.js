@@ -6,7 +6,20 @@ function updatePersonalDataState(prevState, prop, value) {
   return prevState;
 }
 
-function updateExperienceDataState(prevState) {}
+function updateExperienceDataState(prevState, id, prop, value) {
+  prevState["data"]["experienceList"] = prevState["data"]["experienceList"].map(
+    (item) => {
+      if (item.id === id) {
+        item[prop] = value;
+        return item;
+      }
+
+      return item;
+    }
+  );
+
+  return prevState;
+}
 
 function addToExperienceList(prevState) {
   prevState["data"]["experienceList"] = [
@@ -38,4 +51,5 @@ export {
   updatePersonalDataState,
   addToExperienceList,
   deleteFromExperienceList,
+  updateExperienceDataState,
 };
