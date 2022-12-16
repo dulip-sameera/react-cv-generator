@@ -44,7 +44,6 @@ export class Form extends Component {
         />
 
         <Toggles>
-          <Button text="Generate PDF" color="green" />
           <Button
             text="Load Example"
             color="yellow"

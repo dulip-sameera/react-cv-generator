@@ -63,6 +63,8 @@ export class Body extends Component {
         to: "",
       },
     };
+
+    this.previewRef = React.createRef();
   }
 
   onPersonalInputChange = (e) => {
@@ -237,7 +239,7 @@ export class Body extends Component {
           resetFn={this.reset}
           loadExampleFn={this.loadExample}
         />
-        <Preview info={this.state.data} />
+        <Preview info={this.state.data} ref={this.previewRef} />
       </LayoutDiv>
     );
   }
