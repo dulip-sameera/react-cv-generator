@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Form } from "./Form";
 import Preview from "./Preview";
 import updateDataState from "./Form/Utils/updateDataState";
+import uniqid from "uniqid";
 
 const LayoutDiv = styled.div`
   grid-row: 2/3;
@@ -36,7 +37,7 @@ export class Body extends Component {
       },
 
       experience: {
-        id: "",
+        id: uniqid(),
         position: "",
         company: "",
         address: "",
@@ -45,7 +46,7 @@ export class Body extends Component {
       },
 
       education: {
-        id: "",
+        id: uniqid(),
         universityName: "",
         city: "",
         degree: "",
