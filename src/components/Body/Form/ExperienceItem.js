@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { InputField } from "./Utils";
+import { Button, InputField } from "./Utils";
 
 export class ExperienceItem extends Component {
   render() {
@@ -62,6 +62,8 @@ export class ExperienceItem extends Component {
           onChangeFn={onChangeFn}
           list
         />
+
+        <Button text="Delete" onClickFn={deleteFn} id={id} />
       </div>
     );
   }
