@@ -14,6 +14,7 @@ export class Personal extends Component {
           maxLength="20"
           onChangeFn={onChangeFn}
           placeholder="First Name"
+          value={data.firstName}
         />
         <InputField
           id="lastName"
@@ -21,6 +22,7 @@ export class Personal extends Component {
           maxLength="20"
           onChangeFn={onChangeFn}
           placeholder="Last Name"
+          value={data.lastName}
         />
 
         <InputField
@@ -29,6 +31,7 @@ export class Personal extends Component {
           maxLength="30"
           onChangeFn={onChangeFn}
           placeholder="Position"
+          value={data.position}
         />
 
         <InputField
@@ -45,6 +48,7 @@ export class Personal extends Component {
           maxLength="255"
           onChangeFn={onChangeFn}
           placeholder="Address"
+          value={data.address}
         />
 
         <InputField
@@ -53,6 +57,7 @@ export class Personal extends Component {
           maxLength="10"
           onChangeFn={onChangeFn}
           placeholder="Phone Number"
+          value={data.firstName}
         />
 
         <InputField
@@ -61,6 +66,7 @@ export class Personal extends Component {
           maxLength="30"
           onChangeFn={onChangeFn}
           placeholder="Email"
+          value={data.email}
         />
 
         <InputField
@@ -68,6 +74,7 @@ export class Personal extends Component {
           type="textArea"
           onChangeFn={onChangeFn}
           placeholder="Description"
+          value={data.description}
         />
       </div>
     );
