@@ -11,6 +11,7 @@ const LayoutDiv = styled.div`
 
   display: grid;
   grid-template-rows: 120px 1fr;
+  min-height: 900px;
 `;
 
 const BodyDiv = styled.div`
@@ -21,7 +22,7 @@ const BodyDiv = styled.div`
 export class Preview extends Component {
   render() {
     const { info } = this.props;
-    const { personalInfo } = info;
+    const { personalInfo, experienceList, educationList } = info;
     const {
       firstName,
       lastName,
@@ -37,7 +38,11 @@ export class Preview extends Component {
       <LayoutDiv>
         <Header name={`${firstName} ${lastName}`} position={position} />
         <BodyDiv>
-          <Main description={description} />
+          <Main
+            description={description}
+            experience={experienceList}
+            education={educationList}
+          />
           <SideBar
             image={image}
             email={email}
