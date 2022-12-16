@@ -8,7 +8,7 @@ const LayoutDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 30px;
   background: ${({ theme }) => theme.colors.grey};
 `;
 
