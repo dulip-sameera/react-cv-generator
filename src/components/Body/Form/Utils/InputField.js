@@ -38,7 +38,17 @@ const TextArea = styled.textarea`
 
 export class InputField extends Component {
   render() {
-    const { id, type, maxLength, placeholder, onChangeFn, accept } = this.props;
+    const {
+      id,
+      type,
+      maxLength,
+      placeholder,
+      onChangeFn,
+      accept,
+      list,
+      dataField,
+      dataList,
+    } = this.props;
 
     if (type === "file") {
       return (
@@ -53,6 +63,20 @@ export class InputField extends Component {
           placeholder={placeholder}
           onChange={onChangeFn}
         ></TextArea>
+      );
+    }
+
+    if (list) {
+      return (
+        <Input
+          type={type}
+          maxLength={maxLength}
+          placeholder={placeholder}
+          onChange={onChangeFn}
+          data-field={dataField}
+          data-list={dataList}
+          data-id={id}
+        />
       );
     }
 
