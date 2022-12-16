@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { Button, InputField } from "./Utils";
+import styled from "styled-components";
+
+const LayoutDiv = styled.div`
+  margin-bottom: 20px;
+`;
 
 export class ExperienceItem extends Component {
   render() {
@@ -7,7 +12,7 @@ export class ExperienceItem extends Component {
       this.props;
 
     return (
-      <div>
+      <LayoutDiv>
         <InputField
           type="text"
           maxLength="30"
@@ -64,7 +69,7 @@ export class ExperienceItem extends Component {
         />
 
         <Button text="Delete" onClickFn={deleteFn} id={id} />
-      </div>
+      </LayoutDiv>
     );
   }
 }
