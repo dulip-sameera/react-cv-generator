@@ -5,7 +5,6 @@ import { InputField } from "./Utils";
 export class Personal extends Component {
   render() {
     const { data, onChangeFn } = this.props;
-    console.log(data);
     return (
       <div>
         <SectionTitle>Personal Information</SectionTitle>
