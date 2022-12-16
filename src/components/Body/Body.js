@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { Form } from "./Form";
 import Preview from "./Preview";
 import {
+  addToEducationList,
   addToExperienceList,
+  deleteFromEducationList,
   deleteFromExperienceList,
+  updateEducationDataState,
   updateExperienceDataState,
   updatePersonalDataState,
 } from "./Form/Utils/updateState";
@@ -90,6 +93,12 @@ export class Body extends Component {
         updateExperienceDataState(state, id, field, value)
       );
     }
+
+    if (list === "education") {
+      this.setState((state) =>
+        updateEducationDataState(state, id, field, value)
+      );
+    }
   };
 
   deleteListItem = (e) => {
@@ -99,6 +108,10 @@ export class Body extends Component {
     if (listType === "experience") {
       this.setState((state) => deleteFromExperienceList(state, id));
     }
+
+    if (listType === "education") {
+      this.setState((state) => deleteFromEducationList(state, id));
+    }
   };
 
   addListItem = (e) => {
@@ -106,6 +119,10 @@ export class Body extends Component {
 
     if (type === "experience") {
       this.setState((state) => addToExperienceList(state));
+    }
+
+    if (type === "education") {
+      this.setState((state) => addToEducationList(state));
     }
   };
 
