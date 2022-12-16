@@ -1,3 +1,15 @@
+const black = {
+  100: "#d4d4d8",
+  200: "#a9aab0",
+  300: "#7e7f89",
+  400: "#535561",
+  500: "#282a3a",
+  600: "#20222e",
+  700: "#181923",
+  800: "#101117",
+  900: "#08080c",
+};
+
 const theme = {
   colors: {
     headerBg: "#101223",
@@ -6,7 +18,8 @@ const theme = {
     footerBg: "#101223",
     footerText: "#f3f4f8",
     btnText: "#fff",
-    btnBg: "#282a3a",
+    btnBg: black[600],
+    btnBgHover: black[500],
     textPrimary: "#404252",
     textSecondary: "#282a3a",
     red: "#ff4949",
