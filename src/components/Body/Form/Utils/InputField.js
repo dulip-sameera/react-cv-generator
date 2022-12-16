@@ -30,6 +30,7 @@ const TextArea = styled.textarea`
   border: none;
   resize: none;
   width: 100%;
+  height: 20ch;
   &::placeholder {
     color: ${({ theme }) => theme.colors.textPrimary};
   }
