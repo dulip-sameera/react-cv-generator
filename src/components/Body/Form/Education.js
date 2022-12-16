@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import EducationItem from "./EducationItem";
-
+import styled from "styled-components";
 import SectionTitle from "./styles/SectionTitle.styles";
 import { Button } from "./Utils";
+
+const SectionTitleDif = styled(SectionTitle)`
+  margin-top: 1.5rem;
+`;
 
 export class Education extends Component {
   render() {
@@ -10,7 +14,7 @@ export class Education extends Component {
 
     return (
       <div>
-        <SectionTitle>Education</SectionTitle>
+        <SectionTitleDif>Education</SectionTitleDif>
 
         {data.map((item) => {
           return (
