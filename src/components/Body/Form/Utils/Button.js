@@ -19,7 +19,7 @@ const Btn = styled.button`
 
 export class Button extends Component {
   render() {
-    const { text, onClickFn, id, type } = this.props;
+    const { text, onClickFn, id, type, listType } = this.props;
 
     if (type === "experience") {
       return (
@@ -43,7 +43,7 @@ export class Button extends Component {
 
     return (
       <>
-        <Btn onClick={onClickFn} id={id}>
+        <Btn onClick={onClickFn} id={id} data-list={listType}>
           {text}
         </Btn>
       </>
