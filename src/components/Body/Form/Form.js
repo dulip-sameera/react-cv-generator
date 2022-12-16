@@ -24,7 +24,8 @@ const Toggles = styled.div`
 
 export class Form extends Component {
   render() {
-    const { info, onChangeFn, addFn, deleteFn } = this.props;
+    const { info, onChangeFn, addFn, deleteFn, resetFn, loadExampleFn } =
+      this.props;
     const { data } = info;
     return (
       <LayoutDiv>
@@ -44,8 +45,12 @@ export class Form extends Component {
 
         <Toggles>
           <Button text="Generate PDF" color="green" />
-          <Button text="Load Example" color="yellow" />
-          <Button text="Reset" color="red" />
+          <Button
+            text="Load Example"
+            color="yellow"
+            onClickFn={loadExampleFn}
+          />
+          <Button text="Reset" color="red" onClickFn={resetFn} />
         </Toggles>
       </LayoutDiv>
     );
