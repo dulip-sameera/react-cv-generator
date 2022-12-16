@@ -57,7 +57,7 @@ export class Personal extends Component {
           maxLength="10"
           onChangeFn={onChangeFn}
           placeholder="Phone Number"
-          value={data.firstName}
+          value={data.phoneNumber}
         />
 
         <InputField
