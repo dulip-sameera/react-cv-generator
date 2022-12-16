@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Education from "./Education";
 import Experience from "./Experience";
 import Personal from "./Personal";
+import { Button } from "./Utils";
 
 const LayoutDiv = styled.div`
   grid-column: 1/2;
@@ -11,6 +12,14 @@ const LayoutDiv = styled.div`
   background: ${({ theme }) => theme.colors.grey};
   border-radius: 10px;
   min-width: 800px;
+`;
+
+const Toggles = styled.div`
+  width: 100%;
+  margin: 3rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 export class Form extends Component {
@@ -32,6 +41,12 @@ export class Form extends Component {
           deleteFn={deleteFn}
           addFn={addFn}
         />
+
+        <Toggles>
+          <Button text="Generate PDF" color="green" />
+          <Button text="Load Example" color="yellow" />
+          <Button text="Reset" color="red" />
+        </Toggles>
       </LayoutDiv>
     );
   }
