@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Form } from "./Form";
 import Preview from "./Preview";
-import updateDataState from "./Form/Utils/updateDataState";
-import uniqid from "uniqid";
+import {
+  addToExperienceList,
+  deleteFromExperienceList,
+  updatePersonalDataState,
+} from "./Form/Utils/updateState";
 
 const LayoutDiv = styled.div`
   grid-row: 2/3;
@@ -37,7 +40,7 @@ export class Body extends Component {
       },
 
       experience: {
-        id: uniqid(),
+        id: "",
         position: "",
         company: "",
         address: "",
@@ -46,7 +49,7 @@ export class Body extends Component {
       },
 
       education: {
-        id: uniqid(),
+        id: "",
         universityName: "",
         city: "",
         degree: "",
@@ -63,13 +66,13 @@ export class Body extends Component {
 
     switch (id) {
       case "firstName":
-        this.setState((state) => updateDataState(state, id, value));
+        this.setState((state) => updatePersonalDataState(state, id, value));
         break;
       case "lastName":
-        this.setState((state) => updateDataState(state, id, value));
+        this.setState((state) => updatePersonalDataState(state, id, value));
         break;
       case "position":
-        this.setState((state) => updateDataState(state, id, value));
+        this.setState((state) => updatePersonalDataState(state, id, value));
         break;
       case "image":
         const file = e.target.files[0];
@@ -77,21 +80,21 @@ export class Body extends Component {
         fileReader.readAsDataURL(file);
         fileReader.onloadend = function () {
           this.setState((state) =>
-            updateDataState(state, id, fileReader.result)
+            updatePersonalDataState(state, id, fileReader.result)
           );
         }.bind(this);
         break;
       case "address":
-        this.setState((state) => updateDataState(state, id, value));
+        this.setState((state) => updatePersonalDataState(state, id, value));
         break;
       case "phoneNumber":
-        this.setState((state) => updateDataState(state, id, value));
+        this.setState((state) => updatePersonalDataState(state, id, value));
         break;
       case "email":
-        this.setState((state) => updateDataState(state, id, value));
+        this.setState((state) => updatePersonalDataState(state, id, value));
         break;
       case "description":
-        this.setState((state) => updateDataState(state, id, value));
+        this.setState((state) => updatePersonalDataState(state, id, value));
         break;
 
       default:
@@ -104,11 +107,20 @@ export class Body extends Component {
   };
 
   deleteListItem = (e) => {
-    console.log(e);
+    const id = e.target.id;
+    const listType = e.target.attributes["data-list"].value;
+
+    if (listType === "experience") {
+      this.setState((state) => deleteFromExperienceList(state, id));
+    }
   };
 
   addListItem = (e) => {
-    console.log(e);
+    const type = e.target.id;
+
+    if (type === "experience") {
+      this.setState((state) => addToExperienceList(state));
+    }
   };
 
   render() {
@@ -120,7 +132,7 @@ export class Body extends Component {
             personal: this.onPersonalInputChange,
             list: this.onListInputChange,
           }}
-          deleFn={this.deleteListItem}
+          deleteFn={this.deleteListItem}
           addFn={this.addListItem}
         />
         <Preview info={this.state.data} />
