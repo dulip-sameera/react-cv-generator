@@ -12,6 +12,7 @@ const LayoutDiv = styled.div`
   display: grid;
   grid-template-rows: 120px 1fr;
   min-height: 900px;
+  height: fit-content;
 `;
 
 const BodyDiv = styled.div`
