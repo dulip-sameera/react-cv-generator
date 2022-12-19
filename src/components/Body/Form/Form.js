@@ -30,6 +30,7 @@ const Form = ({
   deleteFn,
   resetFn,
   loadExampleFn,
+  printFn,
 }) => {
   return (
     <LayoutDiv>
@@ -50,6 +51,7 @@ const Form = ({
       />
 
       <Toggles>
+        <Button text="Generate PDF" color="green" onClickFn={printFn} />
         <Button text="Load Example" color="yellow" onClickFn={loadExampleFn} />
 
         <Button text="Reset" color="red" onClickFn={resetFn} />
