@@ -49,7 +49,9 @@ const Button = ({ text, onClickFn, id, type, listType, color }) => {
   if (type === "experience") {
     return (
       <>
-        <Btn onClick={onClickFn}>{text}</Btn>
+        <Btn onClick={onClickFn} id="experience">
+          {text}
+        </Btn>
       </>
     );
   }
