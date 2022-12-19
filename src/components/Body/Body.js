@@ -37,7 +37,8 @@ const Body = () => {
   const [cv, setCv] = useState(initial_cv);
 
   const handleChangePersonalInfo = (e) => {
-    const { id, value } = e.target;
+    const id = e.target.id;
+    const value = e.target.value;
 
     if (id === "image") {
       // get the input file
