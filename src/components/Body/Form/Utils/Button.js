@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Btn = styled.button`
@@ -44,62 +44,62 @@ const GreenBtn = styled(Btn)`
   }
 `;
 
-export class Button extends Component {
-  render() {
-    const { text, onClickFn, id, type, listType, color } = this.props;
-
-    if (type === "experience") {
-      return (
-        <>
-          <Btn onClick={onClickFn} id="experience">
-            {text}
-          </Btn>
-        </>
-      );
-    }
-
-    if (type === "education") {
-      return (
-        <>
-          <Btn onClick={onClickFn} id="education">
-            {text}
-          </Btn>
-        </>
-      );
-    }
-
-    if (color === "red") {
-      return (
-        <>
-          <RedBtn onClick={onClickFn}>{text}</RedBtn>
-        </>
-      );
-    }
-
-    if (color === "yellow") {
-      return (
-        <>
-          <YellowBtn onClick={onClickFn}>{text}</YellowBtn>
-        </>
-      );
-    }
-
-    if (color === "green") {
-      return (
-        <>
-          <GreenBtn onClick={onClickFn}>{text}</GreenBtn>
-        </>
-      );
-    }
-
+const Button = ({ text, onClickFn, id, type, listType, color }) => {
+  // button with id 'experience'
+  if (type === "experience") {
     return (
       <>
-        <Btn onClick={onClickFn} id={id} data-list={listType}>
+        <Btn onClick={onClickFn}>{text}</Btn>
+      </>
+    );
+  }
+
+  // button with id 'education
+  if (type === "education") {
+    return (
+      <>
+        <Btn onClick={onClickFn} id="education">
           {text}
         </Btn>
       </>
     );
   }
-}
+
+  // red color button
+  if (color === "red") {
+    return (
+      <>
+        <RedBtn onClick={onClickFn}>{text}</RedBtn>
+      </>
+    );
+  }
+
+  // yellow color button
+  if (color === "yellow") {
+    return (
+      <>
+        <YellowBtn onClick={onClickFn}>{text}</YellowBtn>
+      </>
+    );
+  }
+
+  // green color button
+  if (color === "green") {
+    return (
+      <>
+        <GreenBtn onClick={onClickFn}>{text}</GreenBtn>
+      </>
+    );
+  }
+
+  // Normal button
+  return (
+    <>
+      <Btn onClick={onClickFn} id={id} data-list={listType}>
+        {text}
+      </Btn>
+    </>
+  );
+};
 
 export default Button;
