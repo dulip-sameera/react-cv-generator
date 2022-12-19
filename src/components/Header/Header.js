@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const LayoutDiv = styled.div`
@@ -22,14 +22,12 @@ const BrandName = styled.h1`
   }
 `;
 
-export class Header extends Component {
-  render() {
-    return (
-      <LayoutDiv>
-        <BrandName>CV Generator</BrandName>
-      </LayoutDiv>
-    );
-  }
-}
+const Header = () => {
+  return (
+    <LayoutDiv>
+      <BrandName>CV Generator</BrandName>
+    </LayoutDiv>
+  );
+};
 
 export default Header;
