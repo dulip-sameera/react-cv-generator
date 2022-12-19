@@ -2,17 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import example_cv from "./data/example_cv";
 import initial_cv from "./data/initial_cv";
-import {
-  addToEducationList,
-  addToExperienceList,
-  deleteFromEducationList,
-  deleteFromExperienceList,
-  updateEducationDataState,
-  updateExperienceDataState,
-  updatePersonalDataState,
-} from "./Form/Utils/updateState";
 import Form from "./Form";
 import Preview from "./Preview";
+import uniqid from "uniqid";
 
 // Styles
 const LayoutDiv = styled.div`
@@ -47,15 +39,25 @@ const Body = () => {
       if (!file) return;
       // create a file reader object
       const fileReader = new FileReader();
-      fileReader.onload = () => {
-        setCv((prevState) =>
-          updatePersonalDataState(prevState, id, fileReader.result)
-        );
+      fileReader.onloadend = () => {
+        setCv((prevState) => ({
+          ...prevState,
+          personalInfo: {
+            ...prevState.personalInfo,
+            [id]: fileReader.result,
+          },
+        }));
       };
 
       fileReader.readAsDataURL(file);
     } else {
-      setCv((prevState) => updatePersonalDataState(prevState, id, value));
+      setCv((prevState) => ({
+        ...prevState,
+        personalInfo: {
+          ...prevState.personalInfo,
+          [id]: value,
+        },
+      }));
     }
   };
 
@@ -70,15 +72,35 @@ const Body = () => {
     const value = e.target.value;
 
     if (list === "experience") {
-      setCv((prevState) =>
-        updateExperienceDataState(prevState, id, field, value)
-      );
+      setCv((prevState) => ({
+        ...prevState,
+        experienceList: prevState.experienceList.map((item) => {
+          if (item.id === id) {
+            return {
+              ...item,
+              [field]: value,
+            };
+          }
+
+          return item;
+        }),
+      }));
     }
 
     if (list === "education") {
-      setCv((prevState) =>
-        updateEducationDataState(prevState, id, field, value)
-      );
+      setCv((prevState) => ({
+        ...prevState,
+        educationList: prevState.educationList.map((item) => {
+          if (item.id === id) {
+            return {
+              ...item,
+              [field]: value,
+            };
+          }
+
+          return item;
+        }),
+      }));
     }
   };
 
@@ -86,10 +108,37 @@ const Body = () => {
     const listType = e.target.id;
 
     if (listType === "experience") {
-      setCv((prevState) => addToExperienceList(prevState));
+      setCv((prevState) => ({
+        ...prevState,
+        experienceList: [
+          ...prevState.experienceList,
+          {
+            id: uniqid(),
+            position: "",
+            company: "",
+            address: "",
+            from: "",
+            to: "",
+          },
+        ],
+      }));
     }
     if (listType === "education") {
-      setCv((prevState) => addToEducationList(prevState));
+      setCv((prevState) => ({
+        ...prevState,
+        educationList: [
+          ...prevState.educationList,
+          {
+            id: uniqid(),
+            universityName: "",
+            city: "",
+            degree: "",
+            subject: "",
+            from: "",
+            to: "",
+          },
+        ],
+      }));
     }
   };
 
@@ -98,11 +147,25 @@ const Body = () => {
     const listType = e.target.attributes["data-list"].value;
 
     if (listType === "experience") {
-      setCv((prevState) => deleteFromExperienceList(prevState, id));
+      setCv((prevState) => ({
+        ...prevState,
+        experienceList: prevState.experienceList.filter((item) => {
+          if (item.id === id) return false;
+
+          return true;
+        }),
+      }));
     }
 
     if (listType === "education") {
-      setCv((prevState) => deleteFromEducationList(prevState, id));
+      setCv((prevState) => ({
+        ...prevState,
+        educationList: prevState.educationList.filter((item) => {
+          if (item.id === id) return false;
+
+          return true;
+        }),
+      }));
     }
   };
 
