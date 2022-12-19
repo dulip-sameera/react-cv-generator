@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { SiGithub } from "react-icons/si";
 
@@ -9,6 +9,7 @@ const LayoutDiv = styled.div`
   align-items: center;
 
   padding: 0 5%;
+  height: 100%;
 
   background: ${({ theme }) => theme.colors.footerBg};
 `;
@@ -33,23 +34,21 @@ const Link = styled.a`
   align-items: center;
 `;
 
-export class Footer extends Component {
-  render() {
-    return (
-      <LayoutDiv>
-        <FooterText>
-          Copyright &#169; 2022 dulip-sameera{" "}
-          <Link
-            href="https://github.com/dulip-sameera/react-cv-generator/tree/5a125bed76de05d18b30b736600662a657052bf0"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <SiGithub />
-          </Link>
-        </FooterText>
-      </LayoutDiv>
-    );
-  }
-}
+const Footer = () => {
+  return (
+    <LayoutDiv>
+      <FooterText>
+        Copyright &#169; 2022 dulip-sameera{" "}
+        <Link
+          href="https://github.com/dulip-sameera/react-cv-generator/tree/5a125bed76de05d18b30b736600662a657052bf0"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <SiGithub />
+        </Link>
+      </FooterText>
+    </LayoutDiv>
+  );
+};
 
 export default Footer;
