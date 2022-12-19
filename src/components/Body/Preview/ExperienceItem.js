@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Description, SubTitle } from "./styles";
 
@@ -19,23 +19,19 @@ const Address = styled(Description)`
   margin-bottom: 0px;
 `;
 
-export class ExperienceItem extends Component {
-  render() {
-    const { from, to, address, position, company } = this.props;
-
-    return (
-      <LayoutDiv>
-        <Period>
-          {from} - {to}
-        </Period>
-        <div>
-          <Position>{position}</Position>
-          <Company>{company}</Company>
-          <Address>{address}</Address>
-        </div>
-      </LayoutDiv>
-    );
-  }
-}
+const ExperienceItem = ({ from, to, address, position, company }) => {
+  return (
+    <LayoutDiv>
+      <Period>
+        {from} - {to}
+      </Period>
+      <div>
+        <Position>{position}</Position>
+        <Company>{company}</Company>
+        <Address>{address}</Address>
+      </div>
+    </LayoutDiv>
+  );
+};
 
 export default ExperienceItem;

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const LayoutDiv = styled.div`
@@ -27,16 +27,13 @@ const Position = styled.h2`
   height: 1.5rem;
 `;
 
-export class Header extends Component {
-  render() {
-    const { name, position } = this.props;
-    return (
-      <LayoutDiv>
-        <Name>{name}</Name>
-        <Position>{position}</Position>
-      </LayoutDiv>
-    );
-  }
-}
+const Header = ({ name, position }) => {
+  return (
+    <LayoutDiv>
+      <Name>{name}</Name>
+      <Position>{position}</Position>
+    </LayoutDiv>
+  );
+};
 
 export default Header;

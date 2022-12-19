@@ -21,40 +21,37 @@ const BodyDiv = styled.div`
   min-width: 800px;
 `;
 
-export class Preview extends Component {
-  render() {
-    const { info } = this.props;
-    const { personalInfo, experienceList, educationList } = info;
-    const {
-      firstName,
-      lastName,
-      position,
-      image,
-      email,
-      address,
-      phoneNumber,
-      description,
-    } = personalInfo;
+const Preview = ({ info }) => {
+  const { personalInfo, experienceList, educationList } = info;
+  const {
+    firstName,
+    lastName,
+    position,
+    image,
+    email,
+    address,
+    phoneNumber,
+    description,
+  } = personalInfo;
 
-    return (
-      <LayoutDiv>
-        <Header name={`${firstName} ${lastName}`} position={position} />
-        <BodyDiv>
-          <Main
-            description={description}
-            experience={experienceList}
-            education={educationList}
-          />
-          <SideBar
-            image={image}
-            email={email}
-            address={address}
-            phoneNumber={phoneNumber}
-          />
-        </BodyDiv>
-      </LayoutDiv>
-    );
-  }
-}
+  return (
+    <LayoutDiv>
+      <Header name={`${firstName} ${lastName}`} position={position} />
+      <BodyDiv>
+        <Main
+          description={description}
+          experience={experienceList}
+          education={educationList}
+        />
+        <SideBar
+          image={image}
+          email={email}
+          address={address}
+          phoneNumber={phoneNumber}
+        />
+      </BodyDiv>
+    </LayoutDiv>
+  );
+};
 
 export default Preview;

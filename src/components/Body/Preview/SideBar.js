@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import defaultImage from "../../../assets/profile_pic.png";
 import { Description, SectionTitle, SubTitle } from "./styles";
@@ -26,32 +26,25 @@ const Container = styled.div`
   }
 `;
 
-export class SideBar extends Component {
-  render() {
-    let { image, address, email, phoneNumber } = this.props;
-
-    if (!image) {
-      image = defaultImage;
-    }
-
-    return (
-      <LayoutDiv>
-        <Image src={image} />
-        <Container>
-          <SectionTitle>Personal Details</SectionTitle>
-
-          <SubTitle>Address</SubTitle>
-          <Description>{address}</Description>
-
-          <SubTitle>Phone Number</SubTitle>
-          <Description>{phoneNumber}</Description>
-
-          <SubTitle>Email</SubTitle>
-          <Description>{email}</Description>
-        </Container>
-      </LayoutDiv>
-    );
+const SideBar = ({ image, address, email, phoneNumber }) => {
+  if (!image) {
+    image = defaultImage;
   }
-}
+
+  return (
+    <LayoutDiv>
+      <Image src={image} />
+      <Container>
+        <SectionTitle>Personal Details</SectionTitle>
+        <SubTitle>Address</SubTitle>
+        <Description>{address}</Description>
+        <SubTitle>Phone Number</SubTitle>
+        <Description>{phoneNumber}</Description>
+        <SubTitle>Email</SubTitle>
+        <Description>{email}</Description>
+      </Container>
+    </LayoutDiv>
+  );
+};
 
 export default SideBar;

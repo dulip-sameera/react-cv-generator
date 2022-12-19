@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Description, SubTitle } from "./styles";
 
@@ -21,25 +21,21 @@ const Subject = styled(Description)`
   margin-bottom: 0px;
 `;
 
-export class EducationItem extends Component {
-  render() {
-    const { from, to, universityName, city, degree, subject } = this.props;
-
-    return (
-      <LayoutDiv>
-        <Period>
-          {from} - {to}
-        </Period>
-        <div>
-          <UniversityName>
-            {universityName}, {city}
-          </UniversityName>
-          <Degree>Degree: {degree}</Degree>
-          <Subject>Subject: {subject}</Subject>
-        </div>
-      </LayoutDiv>
-    );
-  }
-}
+const EducationItem = ({ from, to, universityName, city, degree, subject }) => {
+  return (
+    <LayoutDiv>
+      <Period>
+        {from} - {to}
+      </Period>
+      <div>
+        <UniversityName>
+          {universityName}, {city}
+        </UniversityName>
+        <Degree>Degree: {degree}</Degree>
+        <Subject>Subject: {subject}</Subject>
+      </div>
+    </LayoutDiv>
+  );
+};
 
 export default EducationItem;
