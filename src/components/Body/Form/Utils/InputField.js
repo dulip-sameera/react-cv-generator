@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -42,64 +42,64 @@ const InputImage = styled(Input)`
   }
 `;
 
-export class InputField extends Component {
-  render() {
-    const {
-      id,
-      type,
-      maxLength,
-      placeholder,
-      onChangeFn,
-      accept,
-      list,
-      dataField,
-      dataList,
-      value,
-    } = this.props;
+const InputField = ({
+  id,
+  type,
+  maxLength,
+  onChangeFn,
+  placeholder,
+  value,
+  accept,
+  list,
+  dataField,
+  dataList,
+}) => {
+  // to input a file
+  if (type === "file") {
+    return (
+      <InputImage id={id} type={type} accept={accept} onChange={onChangeFn} />
+    );
+  }
 
-    if (type === "file") {
-      return (
-        <InputImage id={id} type={type} accept={accept} onChange={onChangeFn} />
-      );
-    }
+  // to generate text area
+  if (type === "textArea") {
+    return (
+      <TextArea
+        id={id}
+        placeholder={placeholder}
+        onChange={onChangeFn}
+        value={value}
+      ></TextArea>
+    );
+  }
 
-    if (type === "textArea") {
-      return (
-        <TextArea
-          id={id}
-          placeholder={placeholder}
-          onChange={onChangeFn}
-          value={value}
-        ></TextArea>
-      );
-    }
-
-    if (list) {
-      return (
-        <Input
-          type={type}
-          maxLength={maxLength}
-          placeholder={placeholder}
-          onChange={onChangeFn}
-          data-field={dataField}
-          data-list={dataList}
-          data-id={id}
-          value={value}
-        />
-      );
-    }
-
+  // to input data to a list
+  if (list) {
     return (
       <Input
-        id={id}
         type={type}
         maxLength={maxLength}
         placeholder={placeholder}
         onChange={onChangeFn}
+        data-field={dataField}
+        data-list={dataList}
+        data-id={id}
         value={value}
       />
     );
   }
-}
+
+  // normal input
+  return (
+    <Input
+      id={id}
+      type={type}
+      maxLength={maxLength}
+      placeholder={placeholder}
+      onChange={onChangeFn}
+      value={value}
+    />
+  );
+};
 
 export default InputField;
