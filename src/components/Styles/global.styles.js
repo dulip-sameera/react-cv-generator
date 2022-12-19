@@ -14,7 +14,7 @@ export default createGlobalStyle`
     #root {
         min-height: 100vh;
         display: grid;
-        grid-template-rows: 6% 1fr 3%;
+        grid-template-rows: 6% 1fr 5%;
     }
 
 `;
