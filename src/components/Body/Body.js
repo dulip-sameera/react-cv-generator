@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import initial_cv from "./data/initial_cv";
-import { updatePersonalDataState } from "./Form/Utils/updateState";
+import {
+  addToEducationList,
+  addToExperienceList,
+  deleteFromEducationList,
+  deleteFromExperienceList,
+  updateEducationDataState,
+  updateExperienceDataState,
+  updatePersonalDataState,
+} from "./Form/Utils/updateState";
 
 // Styles
 const LayoutDiv = styled.div`
@@ -47,6 +55,53 @@ const Body = () => {
     }
   };
 
+  const handleChangeListInputs = (e) => {
+    // describe type of the list, whether educationList or experienceList
+    const list = e.target.attributes["data-list"].value;
+    // describe which list item is this in the list
+    const id = e.target.attributes["data-id"].value;
+    // describe the data field ex: position, company, university
+    const field = e.target.attributes["data-field"].value;
+    // input value
+    const value = e.target.value;
+
+    if (list === "experience") {
+      setCv((prevState) =>
+        updateExperienceDataState(prevState, id, field, value)
+      );
+    }
+
+    if (list === "education") {
+      setCv((prevState) =>
+        updateEducationDataState(prevState, id, field, value)
+      );
+    }
+  };
+
+  const addListItem = (e) => {
+    const listType = e.target.id;
+
+    if (listType === "experience") {
+      setCv((prevState) => addToExperienceList(prevState));
+    }
+    if (listType === "education") {
+      setCv((prevState) => addToEducationList(prevState));
+    }
+  };
+
+  const deleteListItem = (e) => {
+    const id = e.target.id;
+    const listType = e.target.attributes["data-list"].value;
+
+    if (listType === "experience") {
+      setCv((prevState) => deleteFromExperienceList(prevState, id));
+    }
+
+    if (listType === "education") {
+      setCv((prevState) => deleteFromEducationList(prevState, id));
+    }
+  };
+
   return (
     <LayoutDiv>
       <div>Body</div>
@@ -68,56 +123,6 @@ export default Body;
 //   updatePersonalDataState,
 // } from "./Form/Utils/updateState";
 // import uniqid from "uniqid";
-
-//   onPersonalInputChange = (e) => {
-//     const id = e.target.id;
-//     let value = e.target.value;
-
-//     if (id === "image") {
-//       const file = e.target.files[0];
-//       const fileReader = new FileReader();
-//       fileReader.readAsDataURL(file);
-//       fileReader.onloadend = function () {
-//         this.setState((state) =>
-//           updatePersonalDataState(state, id, fileReader.result)
-//         );
-//       }.bind(this);
-//     } else {
-//       this.setState((state) => updatePersonalDataState(state, id, value));
-//     }
-//   };
-
-//   onListInputChange = (e) => {
-//     const list = e.target.attributes["data-list"].value;
-//     const id = e.target.attributes["data-id"].value;
-//     const field = e.target.attributes["data-field"].value;
-//     const value = e.target.value;
-
-//     if (list === "experience") {
-//       this.setState((state) =>
-//         updateExperienceDataState(state, id, field, value)
-//       );
-//     }
-
-//     if (list === "education") {
-//       this.setState((state) =>
-//         updateEducationDataState(state, id, field, value)
-//       );
-//     }
-//   };
-
-//   deleteListItem = (e) => {
-//     const id = e.target.id;
-//     const listType = e.target.attributes["data-list"].value;
-
-//     if (listType === "experience") {
-//       this.setState((state) => deleteFromExperienceList(state, id));
-//     }
-
-//     if (listType === "education") {
-//       this.setState((state) => deleteFromEducationList(state, id));
-//     }
-//   };
 
 //   addListItem = (e) => {
 //     const type = e.target.id;
