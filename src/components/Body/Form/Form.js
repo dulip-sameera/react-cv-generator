@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import Education from "./Education";
 import Experience from "./Experience";
@@ -22,38 +22,40 @@ const Toggles = styled.div`
   gap: 1rem;
 `;
 
-export class Form extends Component {
-  render() {
-    const { info, onChangeFn, addFn, deleteFn, resetFn, loadExampleFn } =
-      this.props;
-    const { data } = info;
-    return (
-      <LayoutDiv>
-        <Personal data={data.personalInfo} onChangeFn={onChangeFn.personal} />
-        <Experience
-          data={data.experienceList}
-          onChangeFn={onChangeFn.list}
-          deleteFn={deleteFn}
-          addFn={addFn}
-        />
-        <Education
-          data={data.educationList}
-          onChangeFn={onChangeFn.list}
-          deleteFn={deleteFn}
-          addFn={addFn}
-        />
+const Form = ({
+  info,
+  onChangePersonalInfo,
+  onChangeListInputs,
+  addFn,
+  deleteFn,
+  resetFn,
+  loadExampleFn,
+}) => {
+  return (
+    <LayoutDiv>
+      <Personal data={info.personalInfo} onChangeFn={onChangePersonalInfo} />
 
-        <Toggles>
-          <Button
-            text="Load Example"
-            color="yellow"
-            onClickFn={loadExampleFn}
-          />
-          <Button text="Reset" color="red" onClickFn={resetFn} />
-        </Toggles>
-      </LayoutDiv>
-    );
-  }
-}
+      <Experience
+        data={info.experienceList}
+        onChangeFn={onChangeListInputs}
+        deleteFn={deleteFn}
+        addFn={addFn}
+      />
+
+      <Education
+        data={info.educationList}
+        onChangeFn={onChangeListInputs}
+        deleteFn={deleteFn}
+        addFn={addFn}
+      />
+
+      <Toggles>
+        <Button text="Load Example" color="yellow" onClickFn={loadExampleFn} />
+
+        <Button text="Reset" color="red" onClickFn={resetFn} />
+      </Toggles>
+    </LayoutDiv>
+  );
+};
 
 export default Form;
