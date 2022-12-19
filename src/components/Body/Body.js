@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import example_cv from "./data/example_cv";
 import initial_cv from "./data/initial_cv";
 import Form from "./Form";
 import Preview from "./Preview";
 import uniqid from "uniqid";
+import { useReactToPrint } from "react-to-print";
 
 // Styles
 const LayoutDiv = styled.div`
@@ -177,6 +178,14 @@ const Body = () => {
     setCv(example_cv);
   };
 
+  // creating ref to identify the component that need to be printed
+  const printComponent = useRef();
+
+  const print = useReactToPrint({
+    content: () => printComponent.current,
+    documentTitle: `${cv.personalInfo.firstName}-${cv.personalInfo.lastName}-cv`,
+  });
+
   return (
     <LayoutDiv>
       <Form
@@ -187,8 +196,9 @@ const Body = () => {
         deleteFn={deleteListItem}
         resetFn={reset}
         loadExampleFn={loadExample}
+        printFn={print}
       />
-      <Preview info={cv} />
+      <Preview info={cv} ref={printComponent} />
     </LayoutDiv>
   );
 };
