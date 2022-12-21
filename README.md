@@ -12,8 +12,8 @@
 
 ## Tools and Technologies used to build the project
 
-    - [React](https://reactjs.org/)
-    - [React-Icons](https://react-icons.github.io/react-icons)
-    - [React-To-Print](https://www.npmjs.com/package/react-to-print)
-    - [Styled-Components](https://styled-components.com/)
-    - [uuid](https://www.npmjs.com/package/uuid)
+    *[React](https://reactjs.org/)
+    *[React-Icons](https://react-icons.github.io/react-icons)
+    *[React-To-Print](https://www.npmjs.com/package/react-to-print)
+    *[Styled-Components](https://styled-components.com/)
+    *[uuid](https://www.npmjs.com/package/uuid)
