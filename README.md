@@ -7,8 +7,8 @@
 1. Fork the project
 2. Clone the project to your computer using `git clone` command
 3. Then run these commands in terminal in the exact order
-   1 `npm install` - to install the required node packages
-   2 `npm start` - to run the dev server
+   1`npm install` - to install the required node packages
+   2`npm start` - to run the dev server
 
 ## Tools and Technologies used to build the project
 
